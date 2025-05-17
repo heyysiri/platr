@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import './globals.css';
+import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Script from "next/script";
+import { ClerkProvider } from '@clerk/nextjs';
+import { Inter } from 'next/font/google';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,36 +14,57 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const inter = Inter({ subsets: ['latin'] });
+
 export const metadata: Metadata = {
-  title: "Platr App",
-  description: "A Progressive Web App built with Next.js",
-  manifest: "/manifest.json",
-  themeColor: "#000000",
+  title: 'Platr - Group Dining Decisions Made Simple',
+  description: 'Find the perfect restaurant for your group with Platr. Accommodate everyone\'s dietary needs, budget, and preferences without the debate.',
+  manifest: '/manifest.json',
+  icons: {
+    apple: '/icon-512x512.png',
+  },
   appleWebApp: {
     capable: true,
-    statusBarStyle: "default",
-    title: "Platr App",
+    statusBarStyle: 'default',
+    title: 'Platr',
   },
+  applicationName: 'Platr',
+  keywords: [
+    'restaurant', 'dining', 'group dining', 'food', 'restaurant finder',
+    'dietary restrictions', 'group decisions', 'dining app', 'restaurant recommendations'
+  ],
+  openGraph: {
+    title: "Platr - Group Dining Simplified",
+    description: "Find the perfect restaurant for your group with Platr",
+    url: "https://platr.app",
+    siteName: "Platr",
+    locale: "en_US",
+    type: "website",
+  },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: '#FF5A00',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-        <Script src="/pwa.js" strategy="lazyOnload" />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" className="dark">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased ${inter.className}`}
+        >
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

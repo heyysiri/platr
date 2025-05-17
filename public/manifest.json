@@ -1,11 +1,11 @@
 {
-  "name": "Platr App",
+  "name": "Platr - Group Dining Simplified",
   "short_name": "Platr",
-  "description": "A Progressive Web App built with Next.js",
+  "description": "Find the perfect restaurant for your group with Platr",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "theme_color": "#FF5A00",
   "icons": [
     {
       "src": "/icons/icon-192x192.png",

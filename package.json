@@ -1,5 +1,5 @@
 {
-  "name": "platr-new",
+  "name": "platr",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,18 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.29.9",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.11.0",
+    "lucide-react": "^0.510.0",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.14.3",
     "next": "15.3.2",
     "next-pwa": "^5.6.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/next-pwa": "^5.6.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "canvas": "^3.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "tailwindcss": "^4",
